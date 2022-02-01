@@ -1,0 +1,6 @@
+beautifulsoup4
+numpy
+PySide2
+urllib3
+get-chrome-driver
+selenium ~= 3.0
