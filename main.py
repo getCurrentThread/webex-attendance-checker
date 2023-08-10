@@ -6,7 +6,7 @@ import threading
 import time
 from typing import Dict
 
-from PySide2.QtWidgets import QApplication
+from PySide6.QtWidgets import QApplication
 
 from form import XYTableDialog, MyTable
 from webex import Webex

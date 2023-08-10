@@ -1,9 +1,9 @@
-from PySide2.QtWidgets import (QDialog, QTableWidget, QTableWidgetItem,
+from PySide6.QtWidgets import (QDialog, QTableWidget, QTableWidgetItem,
                                QHeaderView, QPushButton, QHBoxLayout,
-                               QVBoxLayout, QAbstractItemView, QShortcut,
+                               QVBoxLayout, QAbstractItemView,
                                QLineEdit, QApplication)
-from PySide2.QtGui import QKeySequence
-from PySide2.QtCore import QPointF, Qt
+from PySide6.QtGui import QKeySequence, QShortcut
+from PySide6.QtCore import QPointF, Qt
 
 import numpy as np
 
@@ -167,7 +167,7 @@ class XYTableDialog(QDialog):
             fp.write(data)
 
 if __name__ == '__main__':
-    from PySide2.QtWidgets import QApplication
+    from PySide6.QtWidgets import QApplication
     import sys
 
     app = QApplication(sys.argv)

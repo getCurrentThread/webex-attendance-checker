@@ -1,5 +1,6 @@
-from get_chrome_driver import GetChromeDriver
 from selenium import webdriver
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
@@ -8,10 +9,9 @@ from selenium.webdriver.chrome.options import Options
 
 import time
 
-from get_chrome_driver import GetChromeDriver
-
-get_driver = GetChromeDriver()
-get_driver.install()
+# selenium service start
+from selenium.webdriver.chrome.service import Service
+from webdriver_manager.chrome import ChromeDriverManager
 
 """check version of chrome
 check for camera and mic"""
@@ -41,7 +41,7 @@ class Webex:
         self.email = email
         self.link = link
         self.nameofuser = nameofuser
-        self.driver = webdriver.Chrome(options=opt)
+        self.driver = webdriver.Chrome(options=opt, service=Service(ChromeDriverManager().install()))
 
     def login(self):
 
@@ -121,7 +121,7 @@ class Webex:
         # meeting screen
 
         uList: list[str] = []
-        for el in self.driver.find_elements_by_css_selector('div[role="listbox"] div[title]'):
+        for el in self.driver.find_elements(By.CSS_SELECTOR, 'div[role="listbox"] div[title]'):
             # uList.append(el.text)
             uList.append(el.get_attribute('title').strip())
         # p_section = self.driver.find_element_by_css_selector('section[class^="plist-scrollbar"]')
